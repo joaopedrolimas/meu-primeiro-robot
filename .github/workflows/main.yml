@@ -9,3 +9,12 @@ jobs: # Lista de estações de trabalho
     steps: # Lista de tarefas do robô
       - name: Executar Saudaçao # Nome da tarefa
         run: echo "🚀 Automaçao MatrixCI funcionando com sucesso!" # O comando real
+        name: Simulando Falha
+on: [push]
+
+jobs:
+  teste-com-erro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rodar Teste que Falha
+        run: exit 1 # Comando que força o erro
